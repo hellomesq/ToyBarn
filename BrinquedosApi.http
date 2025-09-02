@@ -1,0 +1,6 @@
+@BrinquedosApi_HostAddress = http://localhost:5220
+
+GET {{BrinquedosApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
