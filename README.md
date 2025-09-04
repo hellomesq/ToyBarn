@@ -32,7 +32,7 @@ ASP.NET Core Web API
 
 Entity Framework Core
 
-Banco de dados SQL (SQLite, Oracle, SQL Server ou MySQL)
+Banco de dados SQL SQLit
 
 Swagger
 
