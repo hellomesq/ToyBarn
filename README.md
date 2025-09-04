@@ -1,23 +1,25 @@
-🎠 ToyBarn API
+# 🎠 ToyBarn API
 
-API RESTful para gerenciamento de brinquedos infantis (até 14 anos), desenvolvida em ASP.NET Core utilizando Entity Framework Core e banco de dados relacional.
-O projeto contempla todas as operações de CRUD (Create, Read, Update, Delete), com documentação interativa via Swagger e testes no Postman.
+API RESTful para gerenciamento de brinquedos infantis (até 14 anos), desenvolvida em **ASP.NET Core** utilizando **Entity Framework Core** e banco de dados relacional **SQLite**.  
 
-📋 Funcionalidades
+O projeto contempla todas as operações de **CRUD (Create, Read, Update, Delete)**, com documentação interativa via **Swagger** e possibilidade de testes via **Postman**.
 
-GET /api/brinquedos → Lista todos os brinquedos
+---
 
-GET /api/brinquedos/{id} → Busca brinquedo pelo ID
+## 📋 Funcionalidades
 
-POST /api/brinquedos → Cria novo brinquedo
+✅ **GET** `/api/brinquedos` → Lista todos os brinquedos  
+✅ **GET** `/api/brinquedos/{id}` → Busca brinquedo pelo ID  
+✅ **POST** `/api/brinquedos` → Cria novo brinquedo  
+✅ **PUT** `/api/brinquedos/{id}` → Atualiza um brinquedo existente  
+✅ **DELETE** `/api/brinquedos/{id}` → Remove um brinquedo  
 
-PUT /api/brinquedos/{id} → Atualiza um brinquedo existente
+---
 
-DELETE /api/brinquedos/{id} → Remove um brinquedo
+## 🧩 Estrutura da entidade `Brinquedo`
 
-🧩 Estrutura da entidade Brinquedo
-public class Brinquedo
-{
+```csharp
+public class Brinquedo {
     public int Id_brinquedo { get; set; }
     public string Nome_brinquedo { get; set; } = string.Empty;
     public string Tipo_brinquedo { get; set; } = string.Empty;
@@ -25,60 +27,59 @@ public class Brinquedo
     public string Tamanho { get; set; } = string.Empty;
     public decimal Preco { get; set; }
 }
-
 🛠️ Tecnologias
+⚙️ ASP.NET Core Web API
 
-ASP.NET Core Web API
+🗄️ Entity Framework Core
 
-Entity Framework Core
+💾 Banco de dados SQLite
 
-Banco de dados SQL SQLit
+📑 Swagger
 
-Swagger
-
-Postman
+🔬 Postman
 
 ▶️ Como rodar o projeto
-Pré-requisitos
-
+🔹 Pré-requisitos
 .NET 7 SDK (ou superior)
 
 Banco de dados configurado
 
-EF Core Tools (opcional)
+EF Core Tools (opcional, mas recomendado)
 
-Passos
-
+🔹 Passos
 Clone o repositório:
 
+bash
+Copiar código
 git clone https://github.com/hellomesq/ToyBarn.git
 cd ToyBarn
-
-
 Configure a connection string no arquivo appsettings.json:
 
+json
+Copiar código
 "ConnectionStrings": {
   "DefaultConnection": "Data Source=toybarn.db"
 }
-
-
 Crie o banco e aplique as migrations:
 
+bash
+Copiar código
 dotnet ef migrations add InitialCreate
 dotnet ef database update
-
-
 Execute a aplicação:
 
+bash
+Copiar código
 dotnet run
-
-
 Acesse a documentação Swagger:
 
+bash
+Copiar código
 http://localhost:5220/swagger/index.html
-
-📦 Exemplos JSON
-➕ POST (criar brinquedo)
+📦 Exemplos de JSON para testes (Postman)
+➕ Criar brinquedo (POST /api/brinquedos)
+json
+Copiar código
 {
   "nome_brinquedo": "Carrinho Hot Wheels",
   "tipo_brinquedo": "Carrinho",
@@ -86,8 +87,9 @@ http://localhost:5220/swagger/index.html
   "tamanho": "Pequeno",
   "preco": 29.90
 }
-
-🔄 PUT (atualizar brinquedo)
+🔄 Atualizar brinquedo (PUT /api/brinquedos/1)
+json
+Copiar código
 {
   "id_brinquedo": 1,
   "nome_brinquedo": "Boneca Barbie",
@@ -96,21 +98,27 @@ http://localhost:5220/swagger/index.html
   "tamanho": "Médio",
   "preco": 99.90
 }
+❌ Remover brinquedo (DELETE /api/brinquedos/1)
+Sem body.
 
-❌ DELETE (remover brinquedo)
-DELETE /api/brinquedos/1
+Substitua 1 pelo ID do brinquedo a ser removido.
 
 🖼️ Testes no Swagger e Postman
+📄 GET – Listar todos os brinquedos → Retorna a lista completa
 
-GET – Listar todos os brinquedos → Retorna a lista completa
+🔍 GET – Buscar por ID → Retorna brinquedo específico
 
-GET – Buscar por ID → Retorna brinquedo específico
+➕ POST – Criar novo brinquedo → Insere um novo registro
 
-POST – Criar novo brinquedo → Insere um novo registro
+🔄 PUT – Atualizar brinquedo → Atualiza os dados existentes
 
-PUT – Atualizar brinquedo → Atualiza os dados existentes
-
-DELETE – Remover brinquedo → Exclui pelo ID informado
+❌ DELETE – Remover brinquedo → Exclui pelo ID informado
 
 📊 Arquitetura do Sistema
-Swagger/Postman (CRUD JSON) <--> API ASP.NET Core (Controllers + EF Core) <--> Banco de Dados SQL
+java
+Copiar código
+Swagger/Postman (CRUD JSON)
+        ⬇
+ API ASP.NET Core (Controllers + EF Core)
+        ⬇
+   Banco de Dados SQLite
