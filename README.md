@@ -8,11 +8,11 @@ O projeto contempla todas as operações de **CRUD (Create, Read, Update, Delete
 
 ## 📋 Funcionalidades
 
-✅ **GET** `/api/brinquedos` → Lista todos os brinquedos  
-✅ **GET** `/api/brinquedos/{id}` → Busca brinquedo pelo ID  
-✅ **POST** `/api/brinquedos` → Cria novo brinquedo  
-✅ **PUT** `/api/brinquedos/{id}` → Atualiza um brinquedo existente  
-✅ **DELETE** `/api/brinquedos/{id}` → Remove um brinquedo  
+- ✅ **GET** `/api/brinquedos` → Lista todos os brinquedos  
+- ✅ **GET** `/api/brinquedos/{id}` → Busca brinquedo pelo ID  
+- ✅ **POST** `/api/brinquedos` → Cria novo brinquedo  
+- ✅ **PUT** `/api/brinquedos/{id}` → Atualiza um brinquedo existente  
+- ✅ **DELETE** `/api/brinquedos/{id}` → Remove um brinquedo  
 
 ---
 
@@ -57,8 +57,10 @@ Configure a connection string no arquivo appsettings.json:
 
 json
 Copiar código
-"ConnectionStrings": {
-  "DefaultConnection": "Data Source=toybarn.db"
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=toybarn.db"
+  }
 }
 Crie o banco e aplique as migrations:
 
@@ -99,9 +101,9 @@ Copiar código
   "preco": 99.90
 }
 ❌ Remover brinquedo (DELETE /api/brinquedos/1)
-Sem body.
+Sem body
 
-Substitua 1 pelo ID do brinquedo a ser removido.
+Substitua 1 pelo ID do brinquedo a ser removido
 
 🖼️ Testes no Swagger e Postman
 📄 GET – Listar todos os brinquedos → Retorna a lista completa
