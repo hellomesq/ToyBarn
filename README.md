@@ -1,6 +1,7 @@
-ToyBarn API
+🎠 ToyBarn API
 
-API RESTful para gerenciamento de brinquedos infantis (até 14 anos), desenvolvida em ASP.NET Core utilizando Entity Framework Core e banco de dados relacional. O projeto contempla todas as operações de CRUD (Create, Read, Update, Delete), com documentação interativa via Swagger e testes no Postman.
+API RESTful para gerenciamento de brinquedos infantis (até 14 anos), desenvolvida em ASP.NET Core utilizando Entity Framework Core e banco de dados relacional.
+O projeto contempla todas as operações de CRUD (Create, Read, Update, Delete), com documentação interativa via Swagger e testes no Postman.
 
 📋 Funcionalidades
 
@@ -14,7 +15,7 @@ PUT /api/brinquedos/{id} → Atualiza um brinquedo existente
 
 DELETE /api/brinquedos/{id} → Remove um brinquedo
 
-Estrutura da entidade Brinquedo
+🧩 Estrutura da entidade Brinquedo
 public class Brinquedo
 {
     public int Id_brinquedo { get; set; }
@@ -77,7 +78,7 @@ Acesse a documentação Swagger:
 http://localhost:5220/swagger/index.html
 
 📦 Exemplos JSON
-POST (criar brinquedo)
+➕ POST (criar brinquedo)
 {
   "nome_brinquedo": "Carrinho Hot Wheels",
   "tipo_brinquedo": "Carrinho",
@@ -86,7 +87,7 @@ POST (criar brinquedo)
   "preco": 29.90
 }
 
-PUT (atualizar brinquedo)
+🔄 PUT (atualizar brinquedo)
 {
   "id_brinquedo": 1,
   "nome_brinquedo": "Boneca Barbie",
@@ -96,34 +97,20 @@ PUT (atualizar brinquedo)
   "preco": 99.90
 }
 
-DELETE (remover brinquedo)
+❌ DELETE (remover brinquedo)
 DELETE /api/brinquedos/1
 
 🖼️ Testes no Swagger e Postman
-🔹 GET – Listar todos os brinquedos
 
+GET – Listar todos os brinquedos → Retorna a lista completa
 
-Retorna a lista completa de brinquedos cadastrados.
+GET – Buscar por ID → Retorna brinquedo específico
 
-🔹 GET – Buscar brinquedo por ID
+POST – Criar novo brinquedo → Insere um novo registro
 
+PUT – Atualizar brinquedo → Atualiza os dados existentes
 
-Retorna apenas o brinquedo correspondente ao ID informado.
-
-🔹 POST – Criar novo brinquedo
-
-
-Insere um novo brinquedo no banco de dados a partir do JSON enviado.
-
-🔹 PUT – Atualizar brinquedo existente
-
-
-Atualiza as informações de um brinquedo existente.
-
-🔹 DELETE – Remover brinquedo
-
-
-Remove um brinquedo do banco de dados com base no ID informado.
+DELETE – Remover brinquedo → Exclui pelo ID informado
 
 📊 Arquitetura do Sistema
 Swagger/Postman (CRUD JSON) <--> API ASP.NET Core (Controllers + EF Core) <--> Banco de Dados SQL
