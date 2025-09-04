@@ -78,8 +78,23 @@ Acesse a documentação Swagger:
 bash
 Copiar código
 http://localhost:5220/swagger/index.html
-📦 Exemplos de JSON para testes (Postman)
-➕ Criar brinquedo (POST /api/brinquedos)
+📌 Exemplos de uso no Postman
+🔹 Listar todos os brinquedos (GET)
+http
+Copiar código
+GET {{baseUrl}}/api/brinquedos
+🔹 Buscar brinquedo por ID (GET)
+http
+Copiar código
+GET {{baseUrl}}/api/brinquedos/1
+🔹 Cadastrar novo brinquedo (POST)
+URL
+
+http
+Copiar código
+POST {{baseUrl}}/api/brinquedos
+Body (raw / JSON)
+
 json
 Copiar código
 {
@@ -89,7 +104,14 @@ Copiar código
   "tamanho": "Pequeno",
   "preco": 29.90
 }
-🔄 Atualizar brinquedo (PUT /api/brinquedos/1)
+🔹 Atualizar brinquedo existente (PUT)
+URL
+
+http
+Copiar código
+PUT {{baseUrl}}/api/brinquedos/1
+Body (raw / JSON)
+
 json
 Copiar código
 {
@@ -100,10 +122,15 @@ Copiar código
   "tamanho": "Médio",
   "preco": 99.90
 }
-❌ Remover brinquedo (DELETE /api/brinquedos/1)
-Sem body
+🔹 Remover brinquedo (DELETE)
+http
+Copiar código
+DELETE {{baseUrl}}/api/brinquedos/1
+Onde está {{baseUrl}}, configure no Postman de acordo com sua aplicação, por exemplo:
 
-Substitua 1 pelo ID do brinquedo a ser removido
+https://localhost:5001
+
+ou http://localhost:5038
 
 🖼️ Testes no Swagger e Postman
 📄 GET – Listar todos os brinquedos → Retorna a lista completa
@@ -124,3 +151,5 @@ Swagger/Postman (CRUD JSON)
  API ASP.NET Core (Controllers + EF Core)
         ⬇
    Banco de Dados SQLite
+yaml
+Copiar código
